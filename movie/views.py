@@ -81,3 +81,6 @@ def template_form(request):
         'articles': ['小米su7', 'ChatGPT 5发布']
     }
     return render(request, 'xfz_index.html', context=context)
+
+def static_view(request):
+    return render(request, 'static.html')

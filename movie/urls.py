@@ -17,4 +17,5 @@ urlpatterns = [
     path('url', views.url_view, name='url'),
     path('filter', views.filter_view, name='filter',),
     path('template/form', views.template_form, name='template_form'),
+    path('sta',views.static_view,name='sta'),
 ]

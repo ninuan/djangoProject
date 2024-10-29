@@ -1,10 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>xfz</title>
-</head>
-<body>
-{% include 'xfz_hotarticle.html' %}
-</body>
-</html>
+{% extends 'xfz_base.html' %}
+
+{% block head %}
+    <style>
+        body {
+            color: red;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    {% include 'xfz_hotarticle.html' %}
+    <div>admin</div>
+{% endblock %}
