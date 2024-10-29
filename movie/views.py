@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from datetime import datetime
 
 # Create your views here.
 def movie_list(request):
@@ -65,3 +66,18 @@ def with_view(request):
 
 def url_view(request):
     return render(request, 'url.html')
+
+def filter_view(request):
+    greet = "Hello World, Hello Django"
+    context = {
+        'greet' : greet,
+        'birthday' : datetime.now(),
+        'html': "<h1>hello</h1>"
+    }
+    return render(request,'filter.html',context=context)
+
+def template_form(request):
+    context={
+        'articles': ['小米su7', 'ChatGPT 5发布']
+    }
+    return render(request, 'xfz_index.html', context=context)
