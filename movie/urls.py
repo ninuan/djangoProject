@@ -12,4 +12,7 @@ urlpatterns = [
     path('list', views.movie_list, name='movie_list'),
     path('detail/<int:movie_id>', views.movie_detail, name='index'),
     path('if', views.if_view, name='if'),
+    path('for', views.for_view, name='for'),
+    path('with', views.with_view, name='with'),
+    path('url', views.url_view, name='url'),
 ]

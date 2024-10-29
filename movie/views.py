@@ -35,3 +35,33 @@ def info(request):
 def if_view(request):
     age = 17
     return render(request, 'if.html', context={'age': age})
+
+def for_view(request):
+    # 1. 列表
+    books = [
+        {'name': '水浒传', 'author': '施耐庵'},
+        {'name': '三国演义', 'author': '罗贯中'},
+    ]
+    # 2. 字典
+    person={
+        'realname': 'admin',
+        'age': 17,
+        'height': 180
+    }
+    context = {
+        'books': books,
+        'person': person
+    }
+    return render(request, 'for.html', context=context)
+
+def with_view(request):
+    context = {
+        'books': [
+            {'name': '水浒传', 'author': '施耐庵'},
+            {'name': '三国演义', 'author': '罗贯中'},
+        ]
+    }
+    return render(request, 'with.html', context=context)
+
+def url_view(request):
+    return render(request, 'url.html')
