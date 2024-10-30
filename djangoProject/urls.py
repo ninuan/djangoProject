@@ -40,4 +40,5 @@ urlpatterns = [
     path('book/<int:book_id>',views.book_detail_path),
     path('movie/', include("movie.urls")),
     path('book/', include("book.urls")),
+    path('article/', include('article.urls'))
 ] + static(settings.MEDIA_URL,documnet_root=settings.MEDIA_ROOT)
