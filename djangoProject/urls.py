@@ -31,7 +31,7 @@ def index(request):
     return HttpResponse("Hello, World!")
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("", index, name="index"),
+    path("", views.index, name="index"),
     path("book", views.book_detail_query_string, name='book_detail_query_string'),
     # http://127.0.0.1/book/1
     # 在book_id前面指定参数类型有两个好处：
@@ -39,4 +39,5 @@ urlpatterns = [
     # 2. 在视图函数当中得到的就是一个整形，否则默认是str类型
     path('book/<int:book_id>',views.book_detail_path),
     path('movie/', include("movie.urls")),
+    path('book/', include("book.urls")),
 ] + static(settings.MEDIA_URL,documnet_root=settings.MEDIA_ROOT)
