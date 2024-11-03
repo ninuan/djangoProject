@@ -11,3 +11,18 @@ def article_test(request):
 
     article = Article.objects.first()
     return HttpResponse(article.author.username)
+
+def one_to_many(request):
+    user = User.objects.first()
+    articles = user.articles.filter(title__contains='Chat').all()
+    for article in articles:
+        print(article.title)
+    return HttpResponse("查询成功")
+
+def query1(request):
+    # article = Article.objects.filter(id__exact=1)
+    # article = Article.objects.filter(title__iexact='chat发布')
+    article = Article.objects.filter(title__contains='Chat')
+    print(article.query)
+    print(article)
+    return HttpResponse("查询成功")

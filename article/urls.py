@@ -5,4 +5,6 @@ app_name = 'article'
 
 urlpatterns = [
     path('test', views.article_test, name='article_test'),
+    path('onetomany', views.one_to_many, name='one_to_many'),
+    path('query1', views.query1, name='query1')
 ]
