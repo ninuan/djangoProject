@@ -15,6 +15,7 @@ class UserExtension(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    pub_time = models.DateTimeField(auto_now_add=True, null=True)
 
     # 外键
     author = models.ForeignKey('User',on_delete=models.CASCADE,default=1,related_name='articles')
