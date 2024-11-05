@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from .forms import MessageBoardForm, RegisterForm
+from .forms import MessageBoardForm, RegisterForm, ArticleForm
 # 请求验证装饰器
 from django.views.decorators.http import require_http_methods
 
@@ -31,6 +31,20 @@ def register_view(request):
         if form.is_valid():
             telephone = form.cleaned_data.get('telephone')
             return HttpResponse(f"{telephone}")
+        else:
+            print(form.errors)
+            return HttpResponse("表单验证失败")
+
+@require_http_methods(['GET', 'POST'])
+def article_view(request):
+    if request.method == 'GET':
+        return render(request, 'article.html')
+    else:
+        form = ArticleForm(request.POST)
+        if form.is_valid():
+            title = form.cleaned_data.get('title')
+            content = form.cleaned_data.get('content')
+            return HttpResponse(f"{title}, {content}")
         else:
             print(form.errors)
             return HttpResponse("表单验证失败")

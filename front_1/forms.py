@@ -1,6 +1,9 @@
 from django import forms
 from django.core import validators
 
+from .models import Article
+
+
 # 留言板的表单
 class MessageBoardForm(forms.Form):
     title = forms.CharField(max_length=20,min_length=2,label='标题',error_messages={"min_length":'标题长度不能小于2个字符'})
@@ -24,3 +27,9 @@ class RegisterForm(forms.Form):
             raise forms.ValidationError('两次密码输入不一致')
         else:
             return cleaned_data
+
+class ArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        # fields = '__all__'
+        fields = ['title', 'content']
