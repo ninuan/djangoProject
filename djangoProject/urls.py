@@ -42,4 +42,5 @@ urlpatterns = [
     path('book/', include("book.urls")),
     path('article/', include('article.urls')),
     path('front/', include('front.urls')),
+    path('front_1/', include('front_1.urls')),
 ] + static(settings.MEDIA_URL,documnet_root=settings.MEDIA_ROOT)
