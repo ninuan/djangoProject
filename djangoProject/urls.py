@@ -24,6 +24,7 @@ from django.http import HttpResponse
 from book import views
 from django.urls import include
 from django.urls import reverse
+from . import views as vi
 
 
 def index(request):
@@ -43,4 +44,10 @@ urlpatterns = [
     path('article/', include('article.urls')),
     path('front/', include('front.urls')),
     path('front_1/', include('front_1.urls')),
+    path('cookie/add', vi.add_cookie, name='add_cookie'),
+    path('cookie/delete', vi.delete_cookie, name='delete_cookie'),
+    path('cookie/get', vi.get_cookie, name='get_cookie'),
+    path('session/add', vi.add_session, name='add_session'),
+    path('session/get', vi.get_session, name='get_session'),
+    path('login/', vi.login, name='login'),
 ] + static(settings.MEDIA_URL,documnet_root=settings.MEDIA_ROOT)
